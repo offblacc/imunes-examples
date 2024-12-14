@@ -4,7 +4,7 @@
 
 err=0
 
-eid=`imunes -b services.imn | awk '/Experiment/{print $4; exit}'`
+eid=$(imunes -b services.imn | tee /dev/stderr | awk '/Experiment/{print $4; exit}')
 startCheck "$eid"
 
 # ftp
